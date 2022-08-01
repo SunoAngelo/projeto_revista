@@ -1,0 +1,14 @@
+{
+    "name": "qi/projeto_revista",
+    "autoload": {
+        "psr-4": {
+            "Qi\\ProjetoRevista\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "\"\""
+        }
+    ],
+    "require": {}
+}
