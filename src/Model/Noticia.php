@@ -1,6 +1,6 @@
 <?php
 
-namespace Qi\ProjetoRevista\src\Model;
+namespace APP\Model\DAO;
 
 class Noticia{
     private Autor $autor;
