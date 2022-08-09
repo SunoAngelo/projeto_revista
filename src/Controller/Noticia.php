@@ -81,4 +81,37 @@ function insertNoticia()
                 type: 'error'
             );
     }
+    
+}
+function listNoticias()
+{
+    $dao = new NoticiaDAO();
+    try {
+        $noticias = $dao->findAll();
+    } catch (PDOException $e) {
+        Redirect::redirect(message: 'Lamento, houve um erro inesperado na execução do sistema!!!', type: 'error');
+    }
+    session_start();
+    if ($noticias) {
+        $_SESSION['list_of_products'] = $noticias;
+        header("location:../View/list_noticias.php");
+    } else {
+        Redirect::redirect(message: ['Não existem produtos cadastrados no sistema!!!'], type: 'warning');
+    }
+}
+
+function deleteNoticia()
+{
+    $id = $_GET['code'];
+    $dao = new NoticiaDAO();
+    try {
+        $result = $dao->delete($id);
+        if ($result) {
+            Redirect::redirect(message: 'Noticia removida com sucesso!!!');
+        } else {
+            Redirect::redirect(message: ['Não foi possível remover a noticia!!!'], type: 'warning');
+        }
+    } catch (PDOException $e) {
+        Redirect::redirect(message: 'Lamento, houve um erro inesperado na execução do sistema!!!', type: 'error');
+    }
 }
