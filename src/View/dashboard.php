@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (empty($_SESSION['login'])) {
+  header("location:../../index.html");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,13 +25,13 @@
     </section>
     <section class="mt-24 flex justify-evenly items-center w-5/6 m-auto">
         <div class="bg-white p-11 rounded px-8 pt-6 pb-8 mb-4">
-            <a href="../../index.html">
+            <a href="form_add_noticia.php">
                 <p>Adicionar noticia</p>
                 <img src="img/anotacao.png" alt="" class="h24 w-24">
             </a>
         </div>
         <div class="bg-white p-11 rounded px-8 pt-6 pb-8 mb-4">
-            <a href="form_add_noticia.php">
+            <a href="list_noticias.php">
                 <p>Visualizar noticia</p>
                 <img src="img/jornal.png" alt="" class="h-24 w-24">
             </a>

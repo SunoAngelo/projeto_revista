@@ -1,6 +1,9 @@
 <?php
+session_start();
+if (empty($_SESSION['login'])) {
+    header("location:../../index.html");
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,25 +24,25 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Titulo
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Usuario">
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" type="text" placeholder="Titulo">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Data
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Usuario">
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="data" type="text" placeholder="Data">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Local
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Usuario">
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" type="text" placeholder="Local">
           </div>
           <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
               Conteudo
             </label>
-            <textarea cols="50" rows="10" class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Senha"></textarea>
+            <textarea cols="50" rows="10" class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="conteudo" type="text" placeholder="Digite o conteudo da sua noticia"></textarea>
           </div>
           <div class="flex items-center">
             <button class="bg-neutral-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto" type="button" >

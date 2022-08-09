@@ -11,16 +11,32 @@ if (empty($_POST)) {
     Redirect::redirect('Requisição inválida!!!', type: 'error');
 }
 
-$login = $_POST['login'];
+$login = $_POST['username'];
 $password = $_POST['password'];
 
-$dao = new UserDAO();
-$result = $dao->findUser($login);
+$loginCerto = 'admin';
+$senhaCerta = 'admin';
 
-if (password_verify($password, $result['password'])) {
-    session_start();
-    $_SESSION['login'] = $login;
-    header("location:../View/dashboard.php");
-} else {
-    Redirect::redirect(message: ['Usuário ou senha inválidos!!!']);
+if($login == $loginCerto){
+    if($password == $senhaCerta){
+        session_start();
+        $_SESSION['login'] = $login;
+        header("location:../View/dashboard.php");
+    }
+    else{
+        Redirect::redirect(message: ['senha inválidos!!!']);
+    }
 }
+else{
+    Redirect::redirect(message: ['Usuário inválidos!!!']);
+}
+//$dao = new UserDAO();
+//$result = $dao->findUser($login);
+
+//if (password_verify($password, $result['password'])) {
+    //session_start();
+    //$_SESSION['login'] = $login;
+   // header("location:../View/dashboard.php");
+//} else {
+   // Redirect::redirect(message: ['Usuário ou senha inválidos!!!']);
+//}
