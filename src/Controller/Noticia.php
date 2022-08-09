@@ -58,13 +58,6 @@ function insertNoticia()
         );
     } else {
         $noticia = new Noticia(
-            autor: new Autor(
-                nome: 'Fábio',
-                dataDeNascimento: 19091990,
-                cpf: 20,
-                email: 'email@email.com',
-                senha: '12345678'
-            ),
             data: $data,
             local: $local,
             titulo :$titulo,
@@ -73,12 +66,7 @@ function insertNoticia()
         $dao = new NoticiaDAO();
         try {
             $result = $dao->insert($noticia);
-        } catch (PDOException $e) {
-            Redirect::redirect(message: 'Lamento, houve um erro inesperado na execução do sistema!!!', type: 'error');
-            // Tratar de notificar a equipe
-            // $e->getMessage();
-        }
-        if ($result)
+            if ($result)
             Redirect::redirect(
                 message: 'Noticia cadastrada com sucesso!!!'
             );
@@ -87,6 +75,13 @@ function insertNoticia()
                 message: 'Não foi possível cadastrar a noticia!!!',
                 type: 'error'
             );
+        } catch (PDOException $e) {
+            //Redirect::redirect(message: 'Lamento, houve um erro inesperado na execução do sistema!!!', type: 'error');
+            // Tratar de notificar a equipe
+            echo $e->getMessage();
+            
+        }
+        
     }
     
 }
@@ -109,7 +104,7 @@ function listNoticias()
 
 function deleteNoticias()
 {
-    $id = $_GET['code'];
+    $id = $_GET['id'];
     $dao = new NoticiaDAO();
     try {
         $result = $dao->delete($id);
@@ -124,12 +119,12 @@ function deleteNoticias()
 }
 function findNoticias()
 {
-    $id = $_GET['code'];
+    $id = $_GET['id'];
     $dao = new NoticiaDAO();
     $data = $dao->findOne($id);
     if ($data) {
         session_start();
-        $_SESSION['product_data'] = $data;
+        $_SESSION['noticia_data'] = $data;
         header('location:../View/form_edit_noticia.php');
     } else {
         Redirect::redirect(message: 'Noticia não localizado em nossa base de dados!!!');
@@ -144,11 +139,11 @@ function editNoticias()
             message: 'Requisição inválida!!!'
         );
     }
-
     $titulo = $_POST['titulo'];
     $local = $_POST['local'];
     $conteudo = $_POST['conteudo'];
     $data = $_POST["data"];
+    $id = $_POST["id"];
 
     $error = array();
 
@@ -156,17 +151,11 @@ function editNoticias()
         Redirect::redirect(message: $error, type: 'warning');
     } else {
         $noticia = new Noticia(
+            id:$id,
             titulo: $titulo,
             local: $local,
             conteudo: $conteudo,
-            data: $data,
-            autor: new Autor(
-                nome: 'Fábio',
-                dataDeNascimento: 19091990,
-                cpf: 20,
-                email: 'email@email.com',
-                senha: '12345678'
-            ),
+            data: $data
         );
         $dao = new NoticiaDAO();
         $result = $dao->update($noticia);

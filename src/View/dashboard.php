@@ -31,7 +31,7 @@ if (empty($_SESSION['login'])) {
             </a>
         </div>
         <div class="bg-white p-11 rounded px-8 pt-6 pb-8 mb-4">
-            <a href="list_noticias.php">
+            <a href="../Controller/Noticia.php?operation=list">
                 <p>Visualizar noticia</p>
                 <img src="img/jornal.png" alt="" class="h-24 w-24">
             </a>

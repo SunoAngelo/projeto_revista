@@ -4,24 +4,27 @@ namespace APP\Model;
 use APP\Model\Autor;
 
 class Noticia{
-    private Autor $autor;
-    private int $data;
+    private int $id;
+    private string $autorNome;
+    private string $data;
     private String $local;
     private String $titulo;
     private String $conteudo;
 
     public function __construct(
-        Autor $autor,
-        int $data,
-        String $local,
-        String $titulo,
-        String $conteudo
+        string $data,
+        string $local,
+        string $titulo,
+        string $conteudo,
+        string $autorNome = 'Autor desconhecido',
+        int $id = 0
     ){
-        $this->autor = $autor;
+        $this->id = $id;
         $this->data = $data;
         $this->local = $local;
         $this->titulo = $titulo;
         $this->conteudo = $conteudo;
+        $this->autorNome = $autorNome;
     }
 
     public function __get($attribute)
