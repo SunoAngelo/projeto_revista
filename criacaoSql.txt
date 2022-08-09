@@ -1,0 +1,22 @@
+create database if not exists q1_noticias;
+
+use q1_noticias;
+
+create table if not exists autor(
+	id_autor int,
+	nome VARCHAR(45) not null,
+	dataDeNascimento date not null,
+	cpf VARCHAR(11) not null,
+	email VARCHAR(45) not null,
+	senha VARCHAR(45) not null,
+	primary key (id_autor)
+);
+create table if not exists noticia(
+	id_noticia int auto_increment,
+    nome_autor varchar(45) not null,
+    dataPublicacao date not null,
+    local_noticia VARCHAR(45) not null,
+    titulo VARCHAR(45) not null,
+    conteudo TEXT,
+    primary key (id_noticia)
+);
