@@ -8,6 +8,7 @@ use APP\Model\DAO\NoticiaDAO;
 use APP\Utils\Redirect;
 use APP\Model\Validation;
 use APP\Model\Autor;
+use APP\Model\Noticia;
 use PDOException;
 
 if (empty($_GET['operation'])) {
@@ -57,7 +58,13 @@ function insertNoticia()
         );
     } else {
         $noticia = new Noticia(
-            autor: new Autor(),
+            autor: new Autor(
+                nome: 'Fábio',
+                dataDeNascimento: 19091990,
+                cpf: 20,
+                email: 'email@email.com',
+                senha: '12345678'
+            ),
             data: $data,
             local: $local,
             titulo :$titulo,
@@ -93,14 +100,14 @@ function listNoticias()
     }
     session_start();
     if ($noticias) {
-        $_SESSION['list_of_products'] = $noticias;
+        $_SESSION['list_noticias'] = $noticias;
         header("location:../View/list_noticias.php");
     } else {
         Redirect::redirect(message: ['Não existem produtos cadastrados no sistema!!!'], type: 'warning');
     }
 }
 
-function deleteNoticia()
+function deleteNoticias()
 {
     $id = $_GET['code'];
     $dao = new NoticiaDAO();
@@ -113,5 +120,60 @@ function deleteNoticia()
         }
     } catch (PDOException $e) {
         Redirect::redirect(message: 'Lamento, houve um erro inesperado na execução do sistema!!!', type: 'error');
+    }
+}
+function findNoticias()
+{
+    $id = $_GET['code'];
+    $dao = new NoticiaDAO();
+    $data = $dao->findOne($id);
+    if ($data) {
+        session_start();
+        $_SESSION['product_data'] = $data;
+        header('location:../View/form_edit_noticia.php');
+    } else {
+        Redirect::redirect(message: 'Noticia não localizado em nossa base de dados!!!');
+    }
+}
+
+function editNoticias()
+{
+    if (empty($_POST)) {
+        Redirect::redirect(
+            type: 'error',
+            message: 'Requisição inválida!!!'
+        );
+    }
+
+    $titulo = $_POST['titulo'];
+    $local = $_POST['local'];
+    $conteudo = $_POST['conteudo'];
+    $data = $_POST["data"];
+
+    $error = array();
+
+    if ($error) {
+        Redirect::redirect(message: $error, type: 'warning');
+    } else {
+        $noticia = new Noticia(
+            titulo: $titulo,
+            local: $local,
+            conteudo: $conteudo,
+            data: $data,
+            autor: new Autor(
+                nome: 'Fábio',
+                dataDeNascimento: 19091990,
+                cpf: 20,
+                email: 'email@email.com',
+                senha: '12345678'
+            ),
+        );
+        $dao = new NoticiaDAO();
+        $result = $dao->update($noticia);
+        if ($result) {
+            Redirect::redirect(message: 'Noticia atualizado com sucesso!!!');
+        } else {
+            Redirect::redirect(message: ['Não foi possível atualizar a noticia!!!'], type: 'warning');
+        }
     }
 }

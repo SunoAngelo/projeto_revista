@@ -1,6 +1,6 @@
 <?php
 
-namespace APP\Model\DAO;
+namespace APP\Model;
 
 class Autor{
     private String $nome;

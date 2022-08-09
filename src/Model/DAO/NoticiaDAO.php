@@ -11,20 +11,20 @@ class NoticiaDAO implements DAO
     {
         $connection = Connection::getConnection();
         $stmt = $connection->prepare('INSERT INTO noticia VALUES(null,?, ?, ?, ?, ?);');
-        $stmt->bindParam(1, $object->name);
-        $stmt->bindParam(2, $object->price);
-        $stmt->bindParam(3, $object->quantity);
-        $stmt->bindParam(4, $object->barCode);
-        $stmt->bindParam(5, $object->isActive);
+        $stmt->bindParam(1, $object->titulo);
+        $stmt->bindParam(2, $object->local);
+        $stmt->bindParam(3, $object->titulo);
+        $stmt->bindParam(4, $object->conteudo);
+        $stmt->bindParam(5, $object->autor);
         return $stmt->execute();
     }
     public function update($object)
     {
         $connection = Connection::getConnection();
         $stmt = $connection->prepare('UPDATE noticia SET titulo=?, conteudo=? WHERE id_noticia=?;');
-        $stmt->bindParam(1, $object->name);
-        $stmt->bindParam(2, $object->quantity);
-        $stmt->bindParam(3, $object->product_code);
+        $stmt->bindParam(1, $object->titulo);
+        $stmt->bindParam(2, $object->local);
+        $stmt->bindParam(3, $object->conteudo);
         return $stmt->execute();
     }
     public function findAll()

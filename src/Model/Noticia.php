@@ -1,6 +1,7 @@
 <?php
 
-namespace APP\Model\DAO;
+namespace APP\Model;
+use APP\Model\Autor;
 
 class Noticia{
     private Autor $autor;
