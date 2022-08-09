@@ -22,4 +22,9 @@ class Noticia{
         $this->titulo = $titulo;
         $this->conteudo = $conteudo;
     }
+
+    public function __get($attribute)
+    {
+        return $this->$attribute;
+    }
 }

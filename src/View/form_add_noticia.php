@@ -19,33 +19,33 @@ if (empty($_SESSION['login'])) {
         <h1 class="text-white text-5xl">Q1 Notícias</h1>
     </section>
     <div class="w-full max-w-xl m-auto">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form action="../controller/Noticia.php?operation=insert" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Titulo
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" type="text" placeholder="Titulo">
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" name="titulo" type="text" placeholder="Titulo">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Data
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="data" type="text" placeholder="Data">
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="data" name="data" type="text" placeholder="Data">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Local
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" type="text" placeholder="Local">
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" name="local" type="text" placeholder="Local">
           </div>
           <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
               Conteudo
             </label>
-            <textarea cols="50" rows="10" class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="conteudo" type="text" placeholder="Digite o conteudo da sua noticia"></textarea>
+            <textarea cols="50" rows="10" class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="conteudo" name="conteudo" type="text" placeholder="Digite o conteudo da sua noticia"></textarea>
           </div>
           <div class="flex items-center">
-            <button class="bg-neutral-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto" type="button" >
+            <button class="bg-neutral-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto" type="submit" >
              Publicar
             </button>
           </div>
