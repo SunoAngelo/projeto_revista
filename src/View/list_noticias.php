@@ -18,7 +18,7 @@ if (empty($_SESSION['login'])) {
         <img src="img/livro-digital.png" alt="Representação de livro digital" class=" h-48 w-48">
         <h1 class="text-white text-5xl">Q1 Notícias</h1>
     </section>
-    <section>
+    <section class="flex items-center justify-center">
     <div class="mb-3 xl:w-96">
     <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
       <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Pesquisar" aria-label="Search" aria-describedby="button-addon2">
@@ -29,13 +29,13 @@ if (empty($_SESSION['login'])) {
         </button>
     </div>
   </div>
+  </div>
+  </section>
     <?php
       session_start();
       foreach ($_SESSION['list_noticias'] as $noticias) :
     ?>
-    <div class="flex justify-center">
-  </div>
-  </section>
+    <div class="flex justify-center mt-6">
     <section class="m-auto w-4/5">
         <div class="max-w-sm w-full lg:max-w-full lg:flex">
         </div>

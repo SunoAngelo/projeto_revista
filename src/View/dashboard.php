@@ -19,8 +19,8 @@ if (empty($_SESSION['login'])) {
             <img src="img/user.png" alt="Foto de um usuario" class="h-48 w-48">
         </div>
         <div>
-            <h1 class="text-white">Nome do usuario</h1>
-            <p class="text-white">Email@email.com</p>
+            <h1 class="text-white">DASHBOARD PRINCIPAL</h1>
+            <p class="text-white">O que voce deseja fazer?</p>
         </div>
     </section>
     <section class="mt-24 flex justify-evenly items-center w-5/6 m-auto">

@@ -20,3 +20,12 @@ create table if not exists noticia(
     conteudo TEXT,
     primary key (id_noticia)
 );
+
+CREATE TABLE `user` (
+  `user_code` smallint NOT NULL,
+  `login` varchar(20) NOT NULL,
+  `password` char(60) NOT NULL,
+  PRIMARY KEY (`user_code`)
+)
+
+insert into user values (1,'autor','$2y$10$z0gaGiH99tbI/NBiQFEg7enGhDhd4nuwqnbG1HBFLx3LNhev3C1Q6');

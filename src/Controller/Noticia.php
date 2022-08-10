@@ -50,7 +50,17 @@ function insertNoticia()
 
     $error = array();
 
+    if (!Validation::validateTitulo($titulo)) {
+        array_push($error, 'O titulo deve conter no minimo 3 caracteres');
+    }
 
+    if (!Validation::validateLocal($local)) {
+        array_push($error, 'O local deve conter no minimo 5 caracteres');
+    }
+
+    if (!Validation::validateConteudo($conteudo)) {
+        array_push($error, 'O conteudo deve conter no minimo 10 caracteres');
+    }
     if ($error) { // Se o array NÃO estiver vazio
         Redirect::redirect(
             message: $error,
@@ -146,7 +156,18 @@ function editNoticias()
     $id = $_POST["id"];
 
     $error = array();
+    
+    if (!Validation::validateTitulo($titulo)) {
+        array_push($error, 'O titulo deve conter no minimo 3 caracteres');
+    }
 
+    if (!Validation::validateLocal($local)) {
+        array_push($error, 'O local deve conter no minimo 5 caracteres');
+    }
+
+    if (!Validation::validateConteudo($conteudo)) {
+        array_push($error, 'O conteudo deve conter no minimo 10 caracteres');
+    }
     if ($error) {
         Redirect::redirect(message: $error, type: 'warning');
     } else {
