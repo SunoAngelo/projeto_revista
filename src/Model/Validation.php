@@ -15,4 +15,5 @@ class Validation
     {
         return mb_strlen($conteudo) >= 10;
     }
+    
 }

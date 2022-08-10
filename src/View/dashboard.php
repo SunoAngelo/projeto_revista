@@ -14,8 +14,8 @@ if (empty($_SESSION['login'])) {
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="bg-neutral-600">
-    <section class="mt-24 flex justify-evenly items-center w-5/6 m-auto">
-        <div>
+    <section class="mt-24 flex justify-center items-center w-5/6 m-auto">
+        <div class="mr-5">
             <img src="img/user.png" alt="Foto de um usuario" class="h-48 w-48">
         </div>
         <div>
@@ -32,7 +32,7 @@ if (empty($_SESSION['login'])) {
         </div>
         <div class="bg-white p-11 rounded px-8 pt-6 pb-8 mb-4">
             <a href="../Controller/Noticia.php?operation=list">
-                <p>Visualizar noticia</p>
+                <p>Visualizar Noticias</p>
                 <img src="img/jornal.png" alt="" class="h-24 w-24">
             </a>
         </div>

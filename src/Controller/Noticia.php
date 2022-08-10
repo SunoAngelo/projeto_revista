@@ -108,7 +108,7 @@ function listNoticias()
         $_SESSION['list_noticias'] = $noticias;
         header("location:../View/list_noticias.php");
     } else {
-        Redirect::redirect(message: ['Não existem produtos cadastrados no sistema!!!'], type: 'warning');
+        Redirect::redirect(message: ['Não existem noticias cadastrados no sistema!!!'], type: 'warning');
     }
 }
 

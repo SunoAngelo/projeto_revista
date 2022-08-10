@@ -14,6 +14,10 @@ if (empty($_SESSION['login'])) {
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="bg-neutral-600">
+<header class="h-7 flex items-center justify-evenly bg-neutral-800 text-white">
+      <a href="dashboard.php">Dashboard</a>
+      <a href="list_noticias.php">Noticias</a>
+    </header>
     <section class="flex items-center justify-center ">
         <img src="img/livro-digital.png" alt="Representação de livro digital" class=" h-48 w-48">
         <h1 class="text-white text-5xl">Q1 Notícias</h1>
@@ -28,25 +32,25 @@ if (empty($_SESSION['login'])) {
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Titulo
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" name="titulo" type="text" placeholder="Titulo" value=<?= $noticia['titulo'] ?>>
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" name="titulo" type="text" value=<?= $noticia['titulo'] ?> required>
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Data
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="data" name="data" type="text" placeholder="Data" value=<?= $noticia['dataPublicacao'] ?>>
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="data" name="data" type="date" placeholder="Data" value=<?= $noticia['dataPublicacao'] ?> required>
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Local
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" name="local" type="text" placeholder="Local" value=<?= $noticia['local_noticia'] ?>>
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" name="local" type="text" placeholder="Local" value=<?= $noticia['local_noticia'] ?> required>
           </div>
           <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
               Conteudo
             </label>
-            <textarea cols="50" rows="10" class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="conteudo" name="conteudo" type="text" placeholder="Digite o conteudo da sua noticia"><?= $noticia['conteudo'] ?></textarea>
+            <textarea cols="50" rows="10" class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="conteudo" name="conteudo" type="text" placeholder="Digite o conteudo da sua noticia" required><?= $noticia['conteudo'] ?></textarea>
           </div>
           <div class="flex items-center">
             <button class="bg-neutral-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto" type="submit" >

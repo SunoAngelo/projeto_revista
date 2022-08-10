@@ -5,7 +5,7 @@ if (empty($_SESSION['login'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,10 @@ if (empty($_SESSION['login'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-neutral-600">
+    <header class="h-7 flex items-center justify-evenly bg-neutral-800 text-white">
+      <a href="dashboard.php">Dashboard</a>
+      <a href="list_noticias.php">Noticias</a>
+    </header>
     <section class="flex items-center justify-center ">
         <img src="img/livro-digital.png" alt="Representação de livro digital" class=" h-48 w-48">
         <h1 class="text-white text-5xl">Q1 Notícias</h1>
