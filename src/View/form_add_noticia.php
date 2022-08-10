@@ -12,11 +12,11 @@ if (empty($_SESSION['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar uma noticia</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/read-book-icon.png"/>
 </head>
 <body class="bg-neutral-600">
 <header class="h-7 flex items-center justify-evenly bg-neutral-800 text-white">
       <a href="dashboard.php">Dashboard</a>
-      <a href="list_noticias.php">Noticias</a>
     </header>
     <section class="flex items-center justify-center ">
         <img src="img/livro-digital.png" alt="Representação de livro digital" class=" h-48 w-48">

@@ -12,6 +12,7 @@ if (empty($_SESSION['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/read-book-icon.png"/>
 </head>
 <body class="bg-neutral-600">
     <section class="mt-24 flex justify-center items-center w-5/6 m-auto">

@@ -88,7 +88,7 @@ function insertNoticia()
         } catch (PDOException $e) {
             //Redirect::redirect(message: 'Lamento, houve um erro inesperado na execução do sistema!!!', type: 'error');
             // Tratar de notificar a equipe
-            echo $e->getMessage();
+            $e->getMessage();
             
         }
         
