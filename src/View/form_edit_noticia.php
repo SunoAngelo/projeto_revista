@@ -32,7 +32,7 @@ if (empty($_SESSION['login'])) {
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Titulo
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" name="titulo" type="text" value=<?= $noticia['titulo'] ?> required>
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titulo" name="titulo" type="text" value="<?= $noticia['titulo'] ?>" required>
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -44,7 +44,7 @@ if (empty($_SESSION['login'])) {
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Local
             </label>
-            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" name="local" type="text" placeholder="Local" value=<?= $noticia['local_noticia'] ?> required>
+            <input class="shadow appearance-none border border-neutral-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="local" name="local" type="text" placeholder="Local" value="<?= $noticia['local_noticia'] ?>" required>
           </div>
           <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
